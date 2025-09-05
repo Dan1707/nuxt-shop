@@ -1,5 +1,17 @@
-<script lang="ts" setup></script>
+<script lang="ts" setup>
+import Skeleton from '~/components/ui/skeleton/Skeleton.vue'
+</script>
 
 <template>
-	<h1>sdfsfd</h1>
+	<div class="container mt-4">
+		<h1 class="text-5xl">Hello, user!</h1>
+	</div>
+	<Suspense>
+		<productWrapper />
+
+		<template #fallback>
+			Loading...
+			<Skeleton class="w-full h-[391px]" />
+		</template>
+	</Suspense>
 </template>
