@@ -35,8 +35,9 @@ if (props.product.price && props.product.discount) {
 				:name="isFavorite ? 'mdi:heart' : 'mdi:heart-outline'"
 				class="w-6 h-6 absolute top-5 right-5 text-primary"
 			/>
-			<img
+			<NuxtImg
 				:src="product.image"
+				loading="lazy"
 				v-if="product.image"
 				class="w-full h-full object-cover bg-gray-200"
 			/>
