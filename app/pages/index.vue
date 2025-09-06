@@ -4,7 +4,7 @@ import Skeleton from '~/components/ui/skeleton/Skeleton.vue'
 
 <template>
 	<div class="container mt-4">
-		<h1 class="text-5xl">Hello, user!</h1>
+		<h1 class="text-5xl">Welcome back, user!</h1>
 	</div>
 	<Suspense>
 		<productWrapper />

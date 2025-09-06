@@ -1,11 +1,17 @@
 <script lang="ts" setup>
 import type { Product } from '~/types/product'
 
-defineProps<{
+const props = defineProps<{
 	product: Product
 }>()
 
 const isFavorite = ref(false)
+
+const discount = ref(0)
+
+if (props.product.price && props.product.discount) {
+	discount.value = useDiscount(props.product.price, props.product.discount)
+}
 </script>
 
 <template>
@@ -23,32 +29,37 @@ const isFavorite = ref(false)
 					>-{{ product.discount }}%</span
 				>
 			</div>
-			<Button
+
+			<Icon
 				@click="isFavorite = !isFavorite"
-				variant="icon_btn"
-				class="absolute top-5 right-5"
-			>
-				<Icon
-					:name="isFavorite ? 'mdi:heart' : 'mdi:heart-outline'"
-					class="w-6 h-6"
-				/>
-			</Button>
+				:name="isFavorite ? 'mdi:heart' : 'mdi:heart-outline'"
+				class="w-6 h-6 absolute top-5 right-5 text-primary"
+			/>
 			<img
 				:src="product.image"
 				v-if="product.image"
-				class="w-full h-full object-cover bg-gray-400"
+				class="w-full h-full object-cover bg-gray-200"
 			/>
 		</div>
-		<div class="p-5 min-h-37 flex flex-col justify-between self-stretch">
+		<div class="p-5 min-h-45 flex flex-col justify-between self-stretch">
 			<h3 class="text-xl line-clamp-2">
 				{{ product.title }}
 			</h3>
-			<div class="flex items-center justify-between mt-4">
-				<p class="!font-primary text-xl">{{ product.price }}$</p>
-				<Button>
-					<Icon name="mdi:cart-outline" />
-				</Button>
+			<div class="flex items-center gap-2">
+				<p
+					class="text-md mt-4 font-semibold"
+					:class="{ 'line-through text-gray-400 text-sm': product.discount }"
+				>
+					${{ product.price }}
+				</p>
+				<p v-if="product.discount" class="text-md mt-4 font-semibold">
+					${{ discount }}
+				</p>
 			</div>
+			<Button class="mt-2">
+				<Icon name="mdi:cart-outline" />
+				Add to cart
+			</Button>
 		</div>
 	</article>
 </template>
