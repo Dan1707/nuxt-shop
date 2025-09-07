@@ -1,6 +1,5 @@
 <script setup lang="ts">
 import type { Product } from '~/types/product'
-import Input from '../ui/input/Input.vue'
 import type { Database } from '~~/database.types'
 
 const productsArr = useProductsArr()
@@ -75,13 +74,15 @@ const searchProducts = async (): Promise<Product[]> => {
 							<Icon name="mdi:cart-outline" class="w-6 h-6 text-white" />
 						</Button>
 					</li>
-					<li
-						class="text-primary !font-primary text-lg flex items-center gap-2 cursor-pointer"
-					>
-						<Button>
-							<Icon name="mdi:account-badge-outline" class="w-5 h-5" /> log in
-						</Button>
-					</li>
+					<NuxtLink to="auth">
+						<li
+							class="text-primary !font-primary text-lg flex items-center gap-2 cursor-pointer"
+						>
+							<Button>
+								<Icon name="mdi:account-badge-outline" class="w-5 h-5" /> log in
+							</Button>
+						</li>
+					</NuxtLink>
 				</ul>
 			</nav>
 		</div>
