@@ -16,13 +16,11 @@ export default defineNuxtConfig({
 		plugins: [tailwindcss()],
 	},
 
+	ssr: false,
+
 	shadcn: {
 		prefix: '',
 		componentDir: './app/components/ui',
-	},
-
-	image: {
-		format: ['webp'],
 	},
 
 	supabase: {

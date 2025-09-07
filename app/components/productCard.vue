@@ -15,7 +15,7 @@ if (props.product.price && props.product.discount) {
 </script>
 
 <template>
-	<article class="border-2 rounded-xl overflow-hidden" v-if="product">
+	<article class="border-2 rounded-xl overflow-hidden bg-white" v-if="product">
 		<div class="w-full h-60 relative">
 			<div class="absolute top-5 left-5 flex flex-col gap-2">
 				<span
@@ -33,13 +33,13 @@ if (props.product.price && props.product.discount) {
 			<Icon
 				@click="isFavorite = !isFavorite"
 				:name="isFavorite ? 'mdi:heart' : 'mdi:heart-outline'"
-				class="w-6 h-6 absolute top-5 right-5 text-primary"
+				class="w-6 h-6 absolute top-5 cursor-pointer right-5 text-primary"
 			/>
 			<NuxtImg
 				:src="product.image"
 				loading="lazy"
 				v-if="product.image"
-				class="w-full h-full object-cover bg-gray-200"
+				class="w-full h-full object-contain"
 			/>
 		</div>
 		<div class="p-5 min-h-45 flex flex-col justify-between self-stretch">
@@ -57,7 +57,7 @@ if (props.product.price && props.product.discount) {
 					${{ discount }}
 				</p>
 			</div>
-			<Button class="mt-2">
+			<Button class="mt-4">
 				<Icon name="mdi:cart-outline" />
 				Add to cart
 			</Button>

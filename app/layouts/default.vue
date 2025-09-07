@@ -3,7 +3,7 @@
 <template>
 	<div class="wrapper min-h-screen flex flex-col">
 		<layoutHeader />
-		<main class="flex-1">
+		<main class="flex-1 bg-gray-100">
 			<slot />
 		</main>
 		<layoutFooter />

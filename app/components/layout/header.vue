@@ -26,9 +26,7 @@ const searchProducts = async (): Promise<Product[]> => {
 </script>
 
 <template>
-	<header
-		class="border-b backdrop-blur-3xl sticky z-[999] top-0 w-full bg-gray-800 border-gray-200 py-5"
-	>
+	<header class="backdrop-blur-xl sticky z-[999] top-0 w-full bg-black/68 py-5">
 		<div class="container gap-4 flex items-center justify-between">
 			<div class="flex items-center gap-2 max-w-75 w-full justify-between">
 				<div class="flex items-center gap-1">
